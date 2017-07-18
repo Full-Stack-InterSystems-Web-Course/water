@@ -67,6 +67,7 @@
           }
 
 
+
          map.addListener('click', function(e) {
                 placeMarker(e.latLng);
                 map.setZoom(zoomlevel+=2);
@@ -90,10 +91,7 @@
 						if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
 						{
 							var myArr = JSON.parse(xmlhttp.responseText);
-							//myFunction(myArr);
 							console.log(myArr.main)
-							//document.getElementById("id01").innerHTML = myArr.coord;
-							
 						}
 					}
 			}
