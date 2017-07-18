@@ -91,7 +91,7 @@
 						{
 							var myArr = JSON.parse(xmlhttp.responseText);
 							//myFunction(myArr);
-							console.log(myArr.coord)
+							console.log(myArr.main)
 							//document.getElementById("id01").innerHTML = myArr.coord;
 							
 						}
