@@ -66,8 +66,6 @@
             }
           }
 
-
-
          map.addListener('click', function(e) {
                 placeMarker(e.latLng);
                 map.setZoom(zoomlevel+=2);
