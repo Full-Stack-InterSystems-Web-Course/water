@@ -1,0 +1,3 @@
+ROUTINE ServiceRun
+ServiceOfAffectedHabitants
+ do ##class(utilities.ServiceOfAffectedHabitations).states()

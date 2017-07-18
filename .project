@@ -5,11 +5,6 @@
 	<projects>
 	</projects>
 	<buildSpec>
-		<buildCommand>
-			<name>com.intersys.eclipse.studio.validator</name>
-			<arguments>
-			</arguments>
-		</buildCommand>
 	</buildSpec>
 	<natures>
 		<nature>com.intersys.eclipse.studio.nature</nature>
