@@ -1,0 +1,93 @@
+ROUTINE JSONDataInput
+label
+ set jo = {"fields":[{"id":"a","label":"Station Code","type":"string"},
+ 		             {"id":"b","label":"Water Quality","type":"string"},
+ 		             {"id":"c","label":"Locations","type":"string"},
+ 		             {"id":"d","label":"State Name","type":"string"},
+ 		             {"id":"e","label":"TEMPERATURE (degree Centigrade)-Minimum","type":"string"},
+ 		             {"id":"f","label":"TEMPERATURE (degree Centigrade)-Maximum","type":"string"},
+ 		             {"id":"g","label":"TEMPERATURE (degree Centigrade)-Mean","type":"string"},
+ 		             {"id":"h","label":"Dissolved Oxygen(D.O.) (mg\/l)-Minimum","type":"string"},
+ 		             {"id":"i","label":"Dissolved Oxygen(D.O.) (mg\/l)-Maximum","type":"string"},
+ 		             {"id":"j","label":"Dissolved Oxygen(D.O.) (mg\/l)-Mean","type":"string"},
+ 		             {"id":"k","label":"pH-Minimum","type":"string"},
+ 		             {"id":"l","label":"pH-Maximum","type":"string"},
+ 		             {"id":"m","label":"pH-Mean","type":"string"},
+ 		             {"id":"n","label":"unknown1","type":"string"},
+ 		             {"id":"o","label":"unknown2","type":"string"},
+ 		             {"id":"p","label":"unknown3","type":"string"},
+ 		             {"id":"q","label":"Biochemical oxygen demand (B.O.D.) (mg\/l)-Minimum","type":"string"},
+ 		             {"id":"r","label":"Biochemical oxygen demand (B.O.D.) (mg\/l)-Maximum","type":"string"},
+ 		             {"id":"s","label":"Biochemical oxygen demand (B.O.D.) (mg\/l)-Mean","type":"string"},
+ 		             {"id":"t","label":"NITRATE- N (mg\/l)-Minimum","type":"string"},
+ 		             {"id":"u","label":"NITRATE- N (mg\/l)-Maximum","type":"string"},
+ 		             {"id":"v","label":"NITRATE- N (mg\/l)-Mean","type":"string"},
+ 		             {"id":"w","label":"NITRITE-N (mg\/l)-Minimum","type":"string"},
+ 		             {"id":"x","label":"NITRITE-N (mg\/l)-Maximum","type":"string"},
+ 		             {"id":"y","label":"NITRITE-N (mg\/l)-Mean","type":"string"},
+ 		             {"id":"z","label":"FECAL COLIFORM (MPN\/100ml)-Minimum","type":"string"},
+ 		             {"id":"aa","label":"FECAL COLIFORM (MPN\/100ml)-Maximum","type":"string"},
+ 		             {"id":"ab","label":"FECAL COLIFORM (MPN\/100ml)-Mean","type":"string"},
+ 		             {"id":"ac","label":"TOTAL COLIFORM (MPN\/100ml)-Minimum","type":"string"},
+ 		             {"id":"ad","label":"TOTAL COLIFORM (MPN\/100ml)-Maximum","type":"string"},
+ 		             {"id":"ae","label":"TOTAL COLIFORM (MPN\/100ml)-Mean","type":"string"}],
+ 		             "data":[
+ 		             		["1906"," WATER QUALITY OF RIVER- KRISHNA","KRISHNA DOWNSTREAM OF ISLAMPUR","MAHARASHTRA","22","37","28","4.8","7.3","6.3","6","7.7","6.7","289","849","421","1.4","3.6","2.25","0.3","5","1.53","NA","NA","NA","4","17","10","13","220","139"],
+ 		             		["1153"," WATER QUALITY OF RIVER- KRISHNA","KRISHNA AT RAJAPUR WEIR","MAHARASHTRA","20","27","23","3.8","7.2","6.1","6","7.6","7","118","866","445","1.8","5.2","2.5","0.3","2.4","1.32","NA","NA","NA","4","13","8","90","220","138"],
+ 		             		["2187"," WATER QUALITY OF RIVER- KRISHNA","KRISHNA RIVER AT KSHETRA MAHULI","MAHARASHTRA","18","27","21","4.4","6.2","5.7","8","8.5","8.1","44","528","358","6.2","12","8.73","0.1","0.2","0.12","NA","NA","NA","25","170","112","350","900","663"],
+ 		             		["2188"," WATER QUALITY OF RIVER- KRISHNA","KRISHNA RIVER AT KRISHNA-VENNASANGAM AT MAHULI","MAHARASHTRA","17","20","19","4.3","6.5","5.8","8","8.8","8.3","387","514","451","6.6","17.6","9.73","0.1","0.2","0.13","NA","NA","NA","40","250","131","200","1600","958"],
+ 		             		["2190"," WATER QUALITY OF RIVER- KRISHNA","KRISHNA RIVER AT WAI","MAHARASHTRA","18","21","19","4.7","6.5","5.5","8","8.4","8.1","294","398","358","6.4","12.6","9.2","0.1","0.2","0.12","NA","NA","NA","80","250","170","425","1600","1229"],
+ 		             		["1194"," WATER QUALITY OF RIVER- KRISHNA","KRISHNA AT MAHABALESHWAR DHOMDAM NEAR KOINA DAM","MAHARASHTRA","18","23","20","5.8","6.9","6.4","7","8.6","8","69","131","90","4.3","8.6","6.78","0.1","0.4","0.13","NA","NA","NA","8","70","29","60","250","137"],
+ 		             		["36"," WATER QUALITY OF RIVER- KRISHNA","KRISHNA AT KRISHNA BRIDGE- KARAD","MAHARASHTRA","19","28","22","4.3","6.6","6","7","8.6","8.1","95","388","216","6","11.6","7.94","0.1","0.3","0.14","NA","NA","NA","45","275","146","200","900","617"],
+ 		             		["1310"," WATER QUALITY OF RIVER- KRISHNA","KRISHNA AT KURUNDWAD INKOLHAPUR-MAHARASHTRA","MAHARASHTRA","20","27","22","4","7.4","6.4","6","7.5","6.9","122","763","445","1.6","4.8","2.4","0.6","2.4","1.3","NA","NA","NA","2","11","7","70","170","128"],
+ 		             		["37"," WATER QUALITY OF RIVER- KRISHNA","KRISHNA AT SANGLI","MAHARASHTRA","22","37","28","6.3","7.2","6.7","6","7.6","6.7","191","1212","608","1.2","2.8","2.27","0.2","2.2","1.07","NA","NA","NA","2","11","6","90","140","124"],
+ 		             		["1182"," WATER QUALITY OF RIVER- KRISHNA","KRISHNA AT UPSTREAM OF UGARKHURDBARRAGE-KARNATAKA","KARNATAKA","24","38","28","4.5","9.7","7.1","8","8.5","8","300","1300","773","0.4","3.8","1.94","3.9","15","7.48","NA","NA","NA","170","900","633","500","1600","1275"],
+ 		             		["1889"," WATER QUALITY OF RIVER- KRISHNA","KRISHNA - ANKALI BRIDGE ALONGCHIKKODI KAGWAD ROAD","KARNATAKA","23","37","28","4.8","8.5","6.9","8","8.3","8","290","1140","691","0.4","3.1","1.61","3.7","16","7.48","NA","NA","NA","110","900","467","240","1600","1043"],
+ 		             		["1181"," WATER QUALITY OF RIVER- KRISHNA","KRISHNA AT DOWNSTREAM OF NARAYANPURADAM-KARNATAKA","KARNATAKA","26","39","28","6.3","8.2","7.5","7","8.6","8.2","280","810","527","0.2","3.2","1.38","0.1","1","0.42","NA","NA","NA","4","500","139","8","1600","472"],
+ 		             		["1028"," WATER QUALITY OF RIVER- KRISHNA","KRISHNA AT TINTINI BRIDGE","KARNATAKA","26","29","28","6.8","8","7.7","8","8.8","8.3","380","910","715","0.5","3.3","1.35","0.2","0.5","0.3","0.1","0.1","0.1","23","540","214","50","1600","446"],
+ 		             		["1170"," WATER QUALITY OF RIVER- KRISHNA","KRISHNA AT DOWNSTREAM DEVASAGAR BDG","KARNATAKA","26","29","27","6","8","7.2","8","8.9","8.4","500","1210","837","1","3.4","1.74","0.1","0.7","0.37","NA","NA","NA","110","3000","867","300","16000","2927"],
+ 		             		["1784"," WATER QUALITY OF RIVER- KRISHNA","KRISHNA AT THANGADI -MAHABOOBNAGAR DIST- AP","ANDHRA PRADESH","30","35","33","7","7.8","7.5","8","8.5","8.1","574","865","727","2","5","3.05","1.1","5.6","2.48","0.1","0.1","0.1","0","46","14","46","240","145"],
+ 		             		["39"," WATER QUALITY OF RIVER- KRISHNA","KRISHNA AT GADWAL BRIDGE- AP","ANDHRA PRADESH","22","35","30","1.1","8.4","6.3","7","8.8","8.1","488","1023","731","1.5","3.1","2.05","0.1","5","2.02","0.1","0.1","0.1","0","18","7","42","360","164"],
+ 		             		["1175"," WATER QUALITY OF RIVER- KRISHNA","KRISHNA A\/C WITH TUNGABHADRA-SANGAMESHWARAM AP","ANDHRA PRADESH","24","30","26","7","7.8","7.3","7","8.3","7.9","388","705","575","2","3.2","2.65","0.2","1.4","0.82","0.1","0.1","0.1","70","140","102","750","2100","1198"],
+ 		             		["1465"," WATER QUALITY OF RIVER- KRISHNA","KRISHNA AT WADAPALLY AFTER CONFLWITH RMUSI- AP(SHIFTED FROM 1220)","ANDHRA PRADESH","20","32","27","3.1","4.5","3.9","7","8.3","7.9","307","906","602","0.6","8","1.83","0.2","1.9","0.8","0.1","0.1","0.1","2","4","3","90","2200","526"],
+ 		             		["1786"," WATER QUALITY OF RIVER- KRISHNA","KRISHNA AT VEDADRI - GUNTUR","ANDHRA PRADESH","25","30","28","7.2","8.7","7.9","8","8.1","7.9","461","595","522","0.8","1.8","1.45","0.1","3","0.98","0.1","0.1","0.1","2","8","6","2800","3500","3075"],
+ 		             		["1787"," WATER QUALITY OF RIVER- KRISHNA","KRISHNA AT AMARAVATI - GUNTUR","ANDHRA PRADESH","32","32","32","7.4","9.8","8.4","8","8.4","8.1","512","681","562","0.6","3.4","1.85","0.1","4.7","1.5","0.1","0.1","0.1","4","21","11","3000","5000","4275"],
+ 		             		["25"," WATER QUALITY OF RIVER- KRISHNA","KRISHNA AT VIJAYWADA- AP","ANDHRA PRADESH","25","31","28","5.5","9.2","7.5","7","8.8","7.9","245","710","528","0.8","2","1.33","0.1","3.5","0.92","0.1","0.2","0.11","2","12","6","1700","3500","2700"]]}
+ write jo.%Get("fields") 
+test
+  /*SET jobj={"firstname":"Fred"}
+  WRITE !,"JSON object reference = ",jobj,!
+  WRITE "key value = ",jobj.%Get("firstname"),!
+  WRITE "JSON object value = ",jobj.%ToJSON()*/
+  
+  /*SET jobj={}
+  SET jobj.""="This is the ""null"" property value"
+  WRITE "JSON null property object value = ",jobj.%ToJSON()*/
+  
+  /*SET jary=["Fred","Wilma","Barney"]
+  WRITE "JSON array reference = ",jary,!
+  WRITE "JSON array value = ",jary.%ToJSON()*/
+  
+  /*
+  set longObject = {"a":(longStr),"b":(longStr)}
+   set file=##class(%File).%New("c:\temp\longObjectFile.txt")
+   do file.Open("WSN")
+   do longObject.%ToJSON(file)
+   do file.Close()
+
+   do file.Open("RS")
+   set newObject = {}.%FromJSON(file)
+   write !,"Property newObject.a is "_$LENGTH(newObject.a)_" characters long."
+  */
+json
+ //set dynObject = ##class(%DynamicObject).%New()
+ //set tmpArray = ##class(%Stream.GlobalCharacter).%New()
+ set file=##class(%File).%New("F:\intersystems\water and utilities\datasets\Status of Water Quality in India-2008.json")
+ do file.Open("RS")
+ set string = file.Read(file.Size)
+ w !, "string = ", string
+ set newObject = {}.%FromJSON(string)
+ //write !,"Property newObject.fields is "_$LENGTH(newObject.fields)_" characters long."
+ write !,newObject.%Get("data")
+ write !,newObject.%Get("fields")
+ 

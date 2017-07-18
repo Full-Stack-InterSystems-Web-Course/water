@@ -1,0 +1,8 @@
+1. Convert JSON format to CSV of the data array using online tool
+2. Convert the CSV file to tab spaced text file using MSExcel -> Export -> Tab Spaced text file
+3. Open Web Portal, switch namespace and go to System Operations -> SQL
+4. Open Wizard -> Data Import
+5. Select table name and click Next
+6. Select columns and click Next
+7. Click "First row contains column headers?" if your text file has column names
+8. Click Finish
