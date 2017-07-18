@@ -1,0 +1,21 @@
+<html>
+<head>
+	<title>Home Page</title>
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="./css/stylehome.css"> 
+ </head>
+
+<body onload="form1.reset();">
+
+	<div id="findcity">LOCATION  :</div>
+	<div id="locationField">
+		<form id="form1">
+			<input id="autocomplete" placeholder="Enter a city" type="text" />
+		</form>
+	</div>
+	<div id="map"></div>
+	<script src="./js/home.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7wYFmWd1SDTDqq7L990Gk5oZTgoV_cBA&libraries=places&callback=initMap" async defer></script>
+</body>
+</html>
