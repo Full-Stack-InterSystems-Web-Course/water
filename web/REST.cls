@@ -36,9 +36,9 @@ ClassMethod json() As %Status
 {
     set state = ##class(entity.State).%New()
     set state.name = "Manipur"
-	write state.name, !
+///	write state.name, !
 	set jsonState = {}
-	do ##class(json.StateService).CopyToJsonObject(state, jsonState)
+	set jsonState = ##class(json.StateService).CopyToJsonObject(state)
 	write jsonState.%ToJSON()
 	quit $$$OK
 }
