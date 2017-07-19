@@ -73,6 +73,7 @@
                 infowindow.open(map, marker);
                 map.setCenter(marker.getPosition());
                 WeatherDetail(e.latLng.lat(),e.latLng.lng());
+                console.log("Done1");
 
              });          
       }
