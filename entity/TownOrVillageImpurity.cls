@@ -1,4 +1,4 @@
-Class entity.TownOrVillageImpurity Extends %Persistent [ StorageStrategy = "" ]
+Class entity.TownOrVillageImpurity Extends %Persistent
 {
 
 Property name As TownOrVillage;

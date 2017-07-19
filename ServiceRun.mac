@@ -1,3 +1,11 @@
 ROUTINE ServiceRun
-ServiceOfAffectedHabitants
+ServiceOfAffectedHabitantsStates
  do ##class(utilities.ServiceOfAffectedHabitations).states()
+ServiceOfAffectedHabitantsDistricts
+  do ##class(utilities.ServiceOfAffectedHabitations).districts()
+ServiceOfAffectedHabitantsTownsOrVillages
+  do ##class(utilities.ServiceOfAffectedHabitations).townsOrVillages()
+ServiceOfAffectedHabitantsWaterImpurity
+ do ##class(utilities.ServiceOfAffectedHabitations).waterImpurity()
+ServiceOfAffectedHabitantsTownOrVillageImpurity
+ do ##class(utilities.ServiceOfAffectedHabitations).townOrVillageImpurity()
