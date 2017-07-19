@@ -1,3 +1,3 @@
-/.project
-/.buildpath
-/domain/
+.project
+.buildpath
+domain/*
