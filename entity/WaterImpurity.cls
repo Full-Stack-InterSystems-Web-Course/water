@@ -2,6 +2,7 @@ Class entity.WaterImpurity Extends %Persistent
 {
 
 Property name As %String;
+//comment
 
 Storage Default
 {
