@@ -11,7 +11,7 @@ XData UrlMap [ XMLNamespace = "http://www.intersystems.com/urlmap" ]
 <Route Url="/test" Method="GET" Call="test"/> 
 <Route Url="/json" Method="GET" Call="json"/>
 <!-- ======================================= -->
-<!-- Work with the entity "TownOrVillage"    -->
+<!-- Work with the entity "State"            -->
 <!-- ======================================= -->
 <!-- Get all states -->
 <Route Url="/states" Method="GET" Call="json.StateService:readAll"/>
@@ -36,9 +36,7 @@ ClassMethod json() As %Status
 {
     set state = ##class(entity.State).%New()
     set state.name = "Manipur"
-	write state.name, !
-	set jsonState = {}
-	do ##class(json.StateService).CopyToJsonObject(state, jsonState)
+	set jsonState = ##class(json.StateService).CopyToJsonObject(state)
 	write jsonState.%ToJSON()
 	quit $$$OK
 }
