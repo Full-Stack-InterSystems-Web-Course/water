@@ -1,5 +1,8 @@
-Class entity.State Extends %Persistent{
-Property name As %String;
+Class entity.State Extends %Persistent
+{
+
+Property name As %String;
+
 Storage Default
 {
 <Data name="StateDefaultData">
@@ -18,4 +21,4 @@ Storage Default
 <Type>%Library.CacheStorage</Type>
 }
 
-}
+}
