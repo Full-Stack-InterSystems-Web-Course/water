@@ -5,8 +5,12 @@ The aim of the project is to provide user  analysis of the water quality around 
 
 Feature List
 
--Show probable water availability using previous year data sets and temperature of current position
+-Show probable water availability using previous year data sets and temperature of current position'
+
 -Show current position of the user
+
 -Locate nearest clean water source (rivers, wells)
+
 -Availability of color mapping to show water purity
+
 -Show previous year statistics of water purity at current position
