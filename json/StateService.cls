@@ -35,4 +35,51 @@ ClassMethod readAll() As %Status
 	return $$$OK
 }
 
+ClassMethod readAllTowns() As %Status
+{
+	// get all states and convert them to json - json array of json objects
+	set list = ##class(dao.FullNameDao).readAll(.status )
+	set returnJsonObj ={}
+	set jsonArray = []
+	for i = 1:1:list.Count(){
+		do jsonArray.%Push(list.GetAt(i))
+	}
+	
+	set returnJsonObj.names = jsonArray
+	write returnJsonObj.%ToJSON()
+	return $$$OK
+}
+
+ClassMethod readByState(ByVal statename As %String ) As %Status
+{
+	//w "statename = ", statename,!
+	// get all states and convert them to json - json array of json objects
+	set list = ##class(dao.FullNameDao).readByState(statename,.status )
+	//w "status = ", $system.Status.DisplayError(status),!
+	set returnJsonObj ={}
+	set jsonArray = []
+	for i = 1:1:list.Count(){
+		do jsonArray.%Push(list.GetAt(i))
+	}
+	
+	set returnJsonObj.names = jsonArray
+	write returnJsonObj.%ToJSON()
+	return $$$OK
+}
+
+ClassMethod readDataAtDistrict(ByVal distname As %String ) As %Status
+{
+   
+	set list=##class(dao.TownImpurityDao).waterImpurityInDistrict(distname,.status )
+	set returnJsonObj ={}
+	set jsonArray = []
+	for i = 1:1:list.Count(){
+		do jsonArray.%Push(list.GetAt(i))
+	}
+	
+	set returnJsonObj.impurityName = jsonArray
+	write returnJsonObj.%ToJSON()
+	return $$$OK
+}
+
 }

@@ -1,19 +1,28 @@
 <html>
 <head>
 	<title>Home Page</title>
-	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="./css/stylehome.css"> 
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
  </head>
 
 <body onload="form1.reset();">
 
-	<div id="findcity">LOCATION  :</div>
-	<div id="locationField">
-		<form id="form1">
-			<input id="autocomplete" placeholder="Enter a city" type="text" />
-		</form>
-	</div>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="col-sm-6 col-md-6 pull-left">
+        <form id ="form1" class="navbar-form" role="search">
+            <div class="input-group form-group-md">
+                <input id="autocomplete" type="text" class="form-control" placeholder="Search" name="srch-term">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+            </div>
+        </form>
+     </div>
+</nav>
+	
 	<div id="map"></div>
 	<script src="./js/home.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7wYFmWd1SDTDqq7L990Gk5oZTgoV_cBA&libraries=places&callback=initMap" async defer></script>

@@ -32,4 +32,30 @@ ClassMethod townOrVillageImpurity() As %Status
 	 	 set status = obj.%Save()
  	 }
 }
+
+ClassMethod waterImpurityInDistrict(districtname As %String,ByRef status As %Status) As %ListOfDataTypes
+{	
+	&sql(declare districtImpurity cursor for
+	      select impurity->name,name->name
+	      from entity.TownOrVillageImpurity
+	      where name->districtName->name = :districtname 
+	      order by name->name )
+	
+	 set list= ##class(%ListOfDataTypes).%New()
+	 &sql(open districtImpurity)
+ 	 for
+ 	 {
+	 	 &sql(fetch districtImpurity into :impurityname, :townname )
+	 	 quit:(SQLCODE '= 0)
+	 	 set str=impurityname_" At "_townname
+	 	 do list.Insert(str)
+ 	 }
+ 	 &sql(close districtImpurity)
+ 	 
+ 	 return list
+ 	 
+}
+
+
+
 }

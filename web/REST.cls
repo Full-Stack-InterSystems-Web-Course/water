@@ -1,6 +1,18 @@
 /// Dispatch class
 Class web.REST Extends %CSP.REST
 {
+ // ClassMethod OnHandleOptionsRequest(pUrl As %String) as %Status
+ //{
+ //	 Set tOrigin=$Get(%request.CgiEnvs("HTTP_ORIGIN"))
+ //	 Do ..SetResponseHeaderIfEmpty("Access-Control-Allow-Origin",tOrigin) 
+ //	 Do ..SetResponseHeaderIfEmpty("Access-Control-Allow-Credentials","true")
+ //	 Set tHeaders=$Get(%request.CgiEnvs("HTTP_ACCESS_CONTROL_REQUEST_HEADERS"))
+ //     Do ..SetResponseHeaderIfEmpty("Access-Control-Allow-Headers",tHeaders)
+ //     Set tMethod=$Get(%request.CgiEnvs("HTTP_ACCESS_CONTROL_REQUEST_METHOD"))
+ //     Do ..SetResponseHeaderIfEmpty("Access-Control-Allow-Method",tMethod)
+ //	
+ //}
+
 
 XData UrlMap [ XMLNamespace = "http://www.intersystems.com/urlmap" ]
 {
@@ -8,13 +20,16 @@ XData UrlMap [ XMLNamespace = "http://www.intersystems.com/urlmap" ]
 <!-- ================================== -->
 <!-- To test the access to the REST app -->
 <!-- ================================== -->
-<Route Url="/test" Method="GET" Call="test"/> 
-<Route Url="/json" Method="GET" Call="json"/>
+<Route Url="/test" Method="GET" Call="test" Cors="true"/> 
+<Route Url="/json" Method="GET" Call="json" Cors="true"/>
 <!-- ======================================= -->
 <!-- Work with the entity "State"            -->
 <!-- ======================================= -->
 <!-- Get all states -->
-<Route Url="/states" Method="GET" Call="json.StateService:readAll"/>
+<Route Url="/states" Method="GET" Call="json.StateService:readAll" Cors="true"/>
+<Route Url="/towns" Method="GET" Call="json.StateService:readAllTowns" Cors="true"/>
+<Route Url="/districts/:name" Method="GET" Call="json.StateService:readByState" Cors="true"/>
+<Route Url="/impurity/:name" Method="GET" Call="json.StateService:readDataAtDistrict" Cors="true" />
 </Routes>
 }
 

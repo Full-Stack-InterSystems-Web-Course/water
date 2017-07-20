@@ -1,0 +1,16 @@
+#map {
+            height: 500px;
+			width: 500px;
+			top: 0px;
+			left:0px;
+			position:absolute;
+			
+         }
+.table {
+	border:1px solid grey;
+	border-top: 1px solid grey;
+    background:#eee;
+    padding:5px; margin-left:400px;
+	margin-top:50px;
+    overflow-x: hidden;
+}

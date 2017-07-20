@@ -1,0 +1,41 @@
+<html>
+<head>
+	<title>Home Page</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="./css/styleproperties.css"> 
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ </head>
+
+<body>
+
+	<div class="col-xs-offset-3 col-xs-2">
+  <table class="table table-hover">
+    <tbody>
+      <tr>
+        <td class="col-md-3">Temperature</td>
+        <td id="lat" >
+			
+			</td>
+		
+      </tr>
+      <tr>
+        <td class="col-md-3">Pressure</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="col-md-3">Humidity</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+	
+	<div id="map"></div>
+	<script src="./js/data.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7wYFmWd1SDTDqq7L990Gk5oZTgoV_cBA&libraries=places&callback=initMap" async defer></script>	
+</body>
+</html>
