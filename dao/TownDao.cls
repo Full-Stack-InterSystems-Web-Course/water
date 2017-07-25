@@ -23,6 +23,7 @@ ClassMethod townsOrVillages() As %Status
 	 	 
 	 	 set districtObj = ##class(entity.District).%OpenId(id)
 	 	 set obj.districtName = districtObj
+///test
 	 	 set status = obj.%Save()
  	 }
 }
