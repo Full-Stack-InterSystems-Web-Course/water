@@ -1,30 +1,76 @@
+<!DOCTYPE html>
 <html>
 <head>
-	<title>Home Page</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta charset="utf-8">
-	<link rel="stylesheet" href="./css/stylehome.css"> 
+
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
- </head>
+<link rel="stylesheet" href="./css/stylehome.css">
+<script src="./js/home.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7wYFmWd1SDTDqq7L990Gk5oZTgoV_cBA&callback=initMap&libraries=places" defer></script>
 
+</head>
 <body onload="form1.reset();">
 
-<nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="col-sm-6 col-md-6 pull-left">
-        <form id ="form1" class="navbar-form" role="search">
-            <div class="input-group form-group-md">
-                <input id="autocomplete" type="text" class="form-control" placeholder="Search" name="srch-term">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+<div class="bgimg-1">
+  <div class="caption">
+    <span class="border">FRESH WATER LOCATOR: INDIA </span>
+  </div>
+</div>
+
+<div style="color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;">
+  <h3 style="text-align:center;">Fresh Water Is Near You</h3>
+  <p><b>Choose The Location to Find Fresh Water Resource Around Your Location </b> Nascetur per nec posuere turpis, lectus nec libero turpis nunc at, sed posuere mollis ullamcorper libero ante lectus, blandit pellentesque a, magna turpis est sapien duis blandit dignissim. Viverra interdum mi magna mi, morbi sociis. Condimentum dui ipsum consequat morbi, curabitur aliquam pede, nullam vitae eu placerat eget et vehicula. Varius quisque non molestie dolor, nunc nisl dapibus vestibulum at, sodales tincidunt mauris ullamcorper, dapibus pulvinar, in in neque risus odio. Accumsan fringilla vulputate at quibusdam sociis eleifend, aenean maecenas vulputate, non id vehicula lorem mattis, ratione interdum sociis ornare. Suscipit proin magna cras vel, non sit platea sit, maecenas ante augue etiam maecenas, porta porttitor placerat leo.</p>
+</div>
+
+<div class="bgimg-2">
+    
+    <p>CHOOS</p>
+    
+</div>
+
+<div style="position:relative;top:0px;">
+  <div class="container-fluid">  
+  <div class="row"  >
+  <div class="col-md-12" style="background-color: black">
+  <nav class="navbar navbar-fixed-top">
+       
+            <div class="col-sm-6 col-md-6 pull-left">
+                <form id ="form1" class="navbar-form" role="search">
+                    <div class="input-group form-group-md" >
+                        <input id="autocomplete" type="text" class="form-control" placeholder="Search" name="srch-term">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+                    </div>
+                </form>
             </div>
-        </form>
-     </div>
-</nav>
-	
-	<div id="map"></div>
-	<script src="./js/home.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7wYFmWd1SDTDqq7L990Gk5oZTgoV_cBA&libraries=places&callback=initMap" async defer></script>
+  </nav>
+  </div>
+
+ 
+  <div class="col-md-12" style="padding:360px 40px;position:relative;top:0px;" id="map">
+ </div>
+ 
+  </div>
+
+</div>
+</div>
+<div class="bgimg-3">
+  <div class="caption">
+    <span class="border" style="background-color:transparent;font-size:25px;color: #f7f7f7;">SCROLL UP</span>
+  </div>
+</div>
+
+<div style="position:relative;">
+  <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
+    <p>Scroll up and down to really get the feeling of how Parallax Scrolling works.</p>
+  </div>
+</div>
+
+<div class="bgimg-1">
+  <div class="caption">
+    <span class="border">COOL!</span>
+  </div>
+</div>
+  
 </body>
 </html>

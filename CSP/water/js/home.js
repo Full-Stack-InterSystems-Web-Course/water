@@ -1,11 +1,14 @@
-var zoomlevel=5;
+    
+    var zoomlevel=5;
       var map, places, infoWindow;
       var markers ;
       var autocomplete;
       var countryRestrict = {'country': 'IN'};
       var pinImage;
 
-        function initMap() {       
+
+      function initMap() 
+      {       
         
           map = new google.maps.Map(document.getElementById('map'), {
           zoom: zoomlevel,
@@ -14,17 +17,19 @@ var zoomlevel=5;
           mapTypeControl: false,
           panControl: false,
           zoomControl: true,
-          streetViewControl: false,          
+          streetViewControl: false, 
+	  mapTypeId:'hybrid',
+	           
         });
               
-         
           
-      var marker = new google.maps.Marker({
+        var marker = new google.maps.Marker({
           position: {lat: 23.5937, lng: 78.9629},
           map: map,
-          title: 'Select Location'
+          title: 'Select Location',
+	  
         });
-marker.setAnimation(google.maps.Animation.BOUNCE);
+        marker.setAnimation(google.maps.Animation.BOUNCE);
             
         autocomplete = new google.maps.places.Autocomplete(
               document.getElementById('autocomplete'), {
@@ -36,12 +41,13 @@ marker.setAnimation(google.maps.Animation.BOUNCE);
         autocomplete.addListener('place_changed', onPlaceChanged);
       
         var input = document.getElementById('autocomplete');
-          google.maps.event.addDomListener(input, 'keydown', function(event) { 
+        google.maps.event.addDomListener(input, 'keydown', function(event) { 
             if (event.keyCode === 13) { 
                 event.preventDefault(); 
             }
           }); 
-         var contentString='<a href=file:./mydata.html> OK </a><br/>';
+         
+         var contentString='<div id="okay"> OK </div>';
          var infowindow = new google.maps.InfoWindow({
             content: contentString
             });
@@ -52,10 +58,9 @@ marker.setAnimation(google.maps.Animation.BOUNCE);
               marker.setMap(null)
               marker = new google.maps.Marker({
               position: location, 
-              
-             map: map
-                });
-marker.setAnimation(google.maps.Animation.BOUNCE);
+              map: map
+              });
+        marker.setAnimation(google.maps.Animation.BOUNCE);
 
              }
 
@@ -86,7 +91,6 @@ marker.setAnimation(google.maps.Animation.BOUNCE);
                 localStorage.setItem("latitude",e.latLng.lat());
 				localStorage.setItem("longitude",e.latLng.lng());
                 StateNameFromCoordinates(e.latLng.lat(),e.latLng.lng());
-                
              });          
       
         
@@ -117,13 +121,32 @@ marker.setAnimation(google.maps.Animation.BOUNCE);
 						}
 					}
 			}
-        
-        
 
-         function displayImpurity(distName)
-        {
+
+       function StateNameFromCoordinates(lat,lng)
+        {           console.log("StateNAmeFromCoordinates "+lat+","+lng);
                     var xmlhttp = new XMLHttpRequest();
-					var url ="http://localhost:57772/water/api/impurity/"+distName;
+					var url="https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+lng+"&key=AIzaSyA7wYFmWd1SDTDqq7L990Gk5oZTgoV_cBA";            
+					xmlhttp.open("GET", url, true);
+					xmlhttp.send();
+					
+					xmlhttp.onreadystatechange = function()
+					{
+						if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+						{
+							var myArr = JSON.parse(xmlhttp.responseText);
+                            //drawMarker(myArr.results[0].geometry.location);
+                            //console.log("Huuray");
+                            DistNamefromState(myArr.results[0].address_components[3].long_name);
+                            //console.log(myArr.results[0].address_components[3].long_name);
+						}
+					}
+        }
+        
+        function DistNamefromState(statename)
+			{       
+					var xmlhttp = new XMLHttpRequest();
+					var url ="http://localhost:57772/water/api/districts/"+statename;
 					xmlhttp.open("GET", url, true);
                     xmlhttp.setRequestHeader("Access-Control-Allow-Origin","*");
                     xmlhttp.setRequestHeader("Access-Control-Allow-Credentials", "true");
@@ -133,38 +156,20 @@ marker.setAnimation(google.maps.Animation.BOUNCE);
 						{   
 							var myArr = JSON.parse(xmlhttp.responseText);
                             //for(var i=0;i<myArr.names.length;i++)
-                            for(var i=0;i<myArr.impurityName.length;i++)
-                            {   console.log(myArr.impurityName[i]+"\n");
-                                //LocationFromName(myArr.names[i]);
-//                                contentString ='<p>'+myArr.impurityName[i]+'</p><br/>';
-//                                new google.maps.InfoWindow({
-//                                    content: contentString
-//                                    });
-                             
-                             
+                            for(var i=0;i<myArr.names.length;i++)
+                            {   //console.log(myArr.names[i]);
+                                LocationFromDistName(myArr.names[i]);
                             }
                                
                                 //console.log(myArr.names);
                         }
 					}
-        }
+			}
+
         
-        
-        function drawMarker(location,str)
-        {
-           var marker1=new google.maps.Marker({
-            position: location,
-            map: map,
-            icon: pinImage
-        });
-            str=str.substring(0, str.indexOf("+"));
-            //console.log(str);
-            google.maps.event.addListener(marker1, 'click',displayImpurity(str));
-            //marker1.addEventListener('onclick',displayImpurity(str));
-        }
-       
-         function LocationFromName(str)
-        {
+       //Draw MArker at Districts where data is available
+         function LocationFromDistName(str)
+        {           
                     var xmlhttp = new XMLHttpRequest();
 					var url ="https://maps.googleapis.com/maps/api/geocode/json?address="+str+"&key=AIzaSyA7wYFmWd1SDTDqq7L990Gk5oZTgoV_cBA";
 					xmlhttp.open("GET", url, true);
@@ -183,47 +188,62 @@ marker.setAnimation(google.maps.Animation.BOUNCE);
         
         }
         
-        function StateNameFromCoordinates(lat,lng)
-        {           console.log("StateNAmeFromCoordinates "+lat+","+lng);
-                    var xmlhttp = new XMLHttpRequest();
-					var url="https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+lng+"&key=AIzaSyA7wYFmWd1SDTDqq7L990Gk5oZTgoV_cBA";            
-					xmlhttp.open("GET", url, true);
-					xmlhttp.send();
-					
-					xmlhttp.onreadystatechange = function()
-					{
-						if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
-						{
-							var myArr = JSON.parse(xmlhttp.responseText);
-                            //drawMarker(myArr.results[0].geometry.location);
-                            //console.log("Huuray");
-                            OpenJSON(myArr.results[0].address_components[3].long_name);
-                            //console.log(myArr.results[0].address_components[3].long_name);
-						}
-					}
+   
+        
+        
+    
+        var id=1;
+        
+        function drawMarker(location,str)
+        {  
+           var marker1=new google.maps.Marker({
+            position: location,
+            map: map,
+            icon: pinImage
+        });
+            str=str.substring(0, str.indexOf("+"));
+            
+ //             google.maps.event.addDomListener(marker1, 'click', function(){
+ //             console.log("YEP"+id++);
+ //            });
+            
+            // google.maps.event.addDomListener(marker1, 'click', displayImpurity(str));
+
+
+            google.maps.event.addDomListener(marker1, 'click', function(){
+             console.log("Calling"+str);
+             displayImpurity(str);
+
+             });
+           
         }
-        function OpenJSON(statename)
-			{       
-					var xmlhttp = new XMLHttpRequest();
-					var url ="http://localhost:57772/water/api/districts/"+statename;
+
+
+    function displayImpurity(distName)
+        {			console.log("Calling"+distName);
+                    var xmlhttp = new XMLHttpRequest();
+					var url ="http://localhost:57772/water/api/impurity/"+distName;
 					xmlhttp.open("GET", url, true);
                     xmlhttp.setRequestHeader("Access-Control-Allow-Origin","*");
                     xmlhttp.setRequestHeader("Access-Control-Allow-Credentials", "true");
                    	xmlhttp.send();
 					xmlhttp.onreadystatechange = function()
 					{  if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
-						{   
+						{   console.log("\nImpurities At"+distName);
 							var myArr = JSON.parse(xmlhttp.responseText);
                             //for(var i=0;i<myArr.names.length;i++)
-                            for(var i=0;i<myArr.names.length;i++)
-                            {   //console.log(myArr.names[i]);
-                                LocationFromName(myArr.names[i]);
+                            for(var i=0;i<myArr.impurityName.length;i++)
+                            {   console.log(myArr.impurityName[i]+"\n");
+                                //LocationFromName(myArr.names[i]);
+//                                contentString ='<p>'+myArr.impurityName[i]+'</p><br/>';
+//                                new google.maps.InfoWindow({
+//                                    content: contentString
+//                                    });
+                             
+                             
                             }
                                
                                 //console.log(myArr.names);
                         }
-					}
-			}
-        
-        
-    
+                    }
+        }
