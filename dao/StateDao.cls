@@ -25,4 +25,29 @@ ClassMethod readAll(ByRef status As %Status) As %ListOfObjects
 	quit list
 }
 
+ClassMethod riverLocation(ByVal statename,ByRef status ) As %ListOfDataTypes
+{
+	set status=$$$OK
+	set list = ##class(%ListOfDataTypes).%New()
+	try{
+		&sql(declare RiverCursor cursor for
+			select Locations
+			from entity.RiverQuality 
+			where State=statename )
+			
+		&sql(open RiverCursor)
+		for{
+			&sql(fetch RiverCursor into :loc)
+			quit:(SQLCODE '=0)
+			do list.Insert(loc)
+		}
+	}
+	catch(ex)
+	{
+		set status = ex.AsStatus()
+	}
+	
+	return list
+}
+
 }

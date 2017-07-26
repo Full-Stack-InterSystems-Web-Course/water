@@ -1,4 +1,5 @@
-Class utilities.ServiceOfWaterQuality extends %Persistent {
+Class utilities.ServiceOfWaterQuality Extends %Persistent
+{
 
 /// we should take information from initial data (AffectedWaterParameters) about states
 ClassMethod states() As %Status
