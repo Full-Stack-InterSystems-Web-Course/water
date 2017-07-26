@@ -7,7 +7,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="./css/stylehome.css">
 <script src="./js/home.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7wYFmWd1SDTDqq7L990Gk5oZTgoV_cBA&callback=initMap&libraries=places" defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7wYFmWd1SDTDqq7L990Gk5oZTgoV_cBA&callback=initMap&libraries=places&region=IN" defer></script>
 
 </head>
 <body onload="form1.reset();">
@@ -25,35 +25,34 @@
 
 <div class="bgimg-2">
     
-    <p>CHOOS</p>
+    <div class="caption">
+    <span class="border">CHOOSE YOUR LOCATION </span>
+    </div>
     
 </div>
 
+
 <div style="position:relative;top:0px;">
   <div class="container-fluid">  
-  <div class="row"  >
-  <div class="col-md-12" style="background-color: black">
-  <nav class="navbar navbar-fixed-top">
-       
-            <div class="col-sm-6 col-md-6 pull-left">
-                <form id ="form1" class="navbar-form" role="search">
-                    <div class="input-group form-group-md" >
-                        <input id="autocomplete" type="text" class="form-control" placeholder="Search" name="srch-term">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-                    </div>
-                </form>
-            </div>
-  </nav>
-  </div>
+  	
+  	<div class="row">
 
- 
-  <div class="col-md-12" style="padding:360px 40px;position:relative;top:0px;" id="map">
- </div>
- 
+  		<div class="col-md-12" style="position:relative;top:0px;height:640px;" id="map">
+  		</div>
+  		
+  		<div class="col-sm-6 col-md-6 pull-left" style="position:absolute;top:0px;height:300px;">
+  					<form id ="form1" class="navbar-form" role="search">
+  						<div class="input-group form-group-md" >
+  							<input id="autocomplete" type="text" class="form-control" placeholder="Search" name="srch-term">
+  							<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+  						</div>
+  					</form>
+		</div> 
+  	</div>
   </div>
 
 </div>
-</div>
+
 <div class="bgimg-3">
   <div class="caption">
     <span class="border" style="background-color:transparent;font-size:25px;color: #f7f7f7;">SCROLL UP</span>

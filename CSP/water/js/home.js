@@ -6,6 +6,12 @@
       var countryRestrict = {'country': 'IN'};
       var pinImage;
 
+ //      $(window).resize(function(){
+ //        $('#map').css("height",$(window).height());
+ //        $('#map').css("width",$(window).width());
+ //        google.maps.event.trigger(map, 'resize');
+ //        map.setZoom( map.getZoom() );
+ //       });
 
       function initMap() 
       {       
@@ -18,11 +24,18 @@
           panControl: false,
           zoomControl: true,
           streetViewControl: false, 
+          scrollwheel: false,
 	  mapTypeId:'hybrid',
 	           
         });
               
-          
+        google.maps.event.addDomListener(window, 'resize', function() {
+        var center = {lat: 23.5937, lng: 78.9629} ; //map.getCenter();
+        google.maps.event.trigger(map, 'resize');
+        map.setCenter(center); 
+        map.setZoom(zoomlevel);
+        });
+
         var marker = new google.maps.Marker({
           position: {lat: 23.5937, lng: 78.9629},
           map: map,
