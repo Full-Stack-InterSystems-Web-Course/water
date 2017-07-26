@@ -1,4 +1,5 @@
-     body, html {
+body, html {
+  position:relative;
   height: 100%;
   margin: 0;
   font: 400 15px/1.8 "Lato", sans-serif;
@@ -7,7 +8,7 @@
 
 .bgimg-1, .bgimg-2, .bgimg-3 {
   position: relative;
-  opacity: 0.65;
+  opacity: 0.95;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -15,18 +16,19 @@
 
 }
 .bgimg-1 {
+  top:0px;
   background-image: url("../img/img_parallax.jpg");
   min-height: 100%;
 }
 
 .bgimg-2 {
   background-image: url("../img/img_parallax2.jpg");
-  min-height: 400px;
+  min-height: 100%;
 }
 
 .bgimg-3 {
   background-image: url("../img/img_parallax3.jpg");
-  min-height: 400px;
+  min-height: 100%;
 }
 
 .caption {
@@ -52,12 +54,7 @@ h3 {
   font: 20px "Lato", sans-serif;
   color: #111;
 }
-    
-.navbar{
-    position:relative;
-    top:0;
-    right:0;
-}
+
 .pac-container {
 			font-family:  Georgia, "Times New Roman", Times, serif;
 			font-size: 12px;
@@ -74,4 +71,22 @@ h3 {
         background-attachment: scroll;
     }
 }
-		 
+  #section1 {height:100%;color: #fff;background-color: #2d2d30;}
+  #section2 {height:100%;color: #fff;background-color: #2d2d30;}
+  #section3 {height:100%;color: #fff;background-color: #2d2d30;}
+  #section4 {height:100%;color: #fff;background-color: #2d2d30;}
+.navbar
+{
+	position:fixed;
+    top:0;
+    right:0;
+	background-color: #2d2d30;
+}
+.navbar.transparent.navbar-inverse .navbar-inner {
+    border-width: 0px;
+    -webkit-box-shadow: 0px 0px;
+    box-shadow: 0px 0px;
+    background-image: -webkit-gradient(linear, 50.00% 0.00%, 50.00% 100.00%, color-stop( 0% , rgba(0,0,0,0.00)),color-stop( 100% , rgba(0,0,0,0.00)));
+    background-image: -webkit-linear-gradient(270deg,rgba(0,0,0,0.00) 0%,rgba(0,0,0,0.00) 100%);
+    background-image: linear-gradient(180deg,rgba(0,0,0,0.00) 0%,rgba(0,0,0,0.00) 100%);
+}

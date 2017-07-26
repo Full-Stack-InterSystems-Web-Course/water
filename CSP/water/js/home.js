@@ -1,5 +1,5 @@
     
-    var zoomlevel=5;
+      var zoomlevel=5;
       var map, places, infoWindow;
       var markers ;
       var autocomplete;
@@ -60,11 +60,13 @@
             }
           }); 
          
-         var contentString='<div id="okay"> OK </div>';
+         var contentString='<div id="okay" style="color:black;"><b> OK </b></div>';
          var infowindow = new google.maps.InfoWindow({
             content: contentString
             });
-
+            $(document).on('click','div#okay',function(e){
+            alert('damn'+e.currentTarget.textContent);
+            });
 
 
         function placeMarker(location) {
