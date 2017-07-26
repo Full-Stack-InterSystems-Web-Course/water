@@ -230,10 +230,10 @@ ClassMethod IndexCalc(ph As %Numeric, ni As %Numeric, do As %Numeric, fcol As %N
 	}
 	
 	
-	set wph = ph * wph
-	set wdo = do * wdo
-	set wfcol = fcol * wfcol
-	set wni = ni * wni
+	set wph = ^PH(ph) * wph
+	set wdo = ^DO(do) * wdo
+	set wfcol = ^FCol(fcol) * wfcol
+	set wni = ^Ni(ni) * wni
 	
 	set index = wph+wdo+wfol+wni
 	return index
