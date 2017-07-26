@@ -18,6 +18,7 @@
           panControl: false,
           zoomControl: true,
           streetViewControl: false, 
+          scrollwheel: false,
 	  mapTypeId:'hybrid',
 	           
         });
