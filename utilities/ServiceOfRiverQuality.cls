@@ -186,6 +186,58 @@ ClassMethod IndexCalc(ph As %Numeric, ni As %Numeric, do As %Numeric, fcol As %N
 			    set fcol = ROUND(fcol,0)
 			    set fcol = fcol * 10000
 	}
+	
+	set count =4
+	
+	if (ph=-1)
+	{
+	 set count = count-1
+	}
+	if (fcol = -1)
+	{
+	 set count = count-1
+	}
+	if (do =-1)
+	{
+	set count = count-1
+	}
+	if (ni = -1)
+	{
+	set count = count-1
+	}
+	
+	set weight = 1\count
+	set wph =weight
+	set wdo = weight
+	set wni = weight
+	set wfcol = weight
+	
+	if (ph=-1)
+	{
+	 set wph=0
+	}
+	if (fcol = -1)
+	{
+	 set wfcol =0
+	}
+	if (do =-1)
+	{
+	set wdo =0
+	}
+	if (ni = -1)
+	{
+	set wni=0
+	}
+	
+	
+	set wph = ph * wph
+	set wdo = do * wdo
+	set wfcol = fcol * wfcol
+	set wni = ni * wni
+	
+	set index = wph+wdo+wfol+wni
+	return index
+	
 }
 
 }
