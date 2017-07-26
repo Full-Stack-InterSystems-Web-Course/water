@@ -36,4 +36,19 @@ ClassMethod stateImpurityData(state As %String) As %String
 	  return myJSONString
 }
 
+Storage Default
+{
+<Data name="ServiceOfWaterQualityDefaultData">
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+</Data>
+<DataLocation>^utilities.ServiceOfWa8C46D</DataLocation>
+<DefaultData>ServiceOfWaterQualityDefaultData</DefaultData>
+<IdLocation>^utilities.ServiceOfWa8C46D</IdLocation>
+<IndexLocation>^utilities.ServiceOfWa8C46I</IndexLocation>
+<StreamLocation>^utilities.ServiceOfWa8C46S</StreamLocation>
+<Type>%Library.CacheStorage</Type>
+}
+
 }
