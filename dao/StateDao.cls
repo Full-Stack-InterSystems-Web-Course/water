@@ -65,7 +65,8 @@ ClassMethod PurityParameter(statename, ByRef status) As %Numeric
 		for{
 			&sql(fetch RiverCursor2 into :ph,:ni,:do,:fcol)
 			quit:(SQLCODE '=0)
-			set a=##class(utilities.ServiceOfRiverQuality).IndexCalc(ph, ni , do, fcol) 
+			//set a=##class(utilities.ServiceOfRiverQuality).IndexCalc(ph, ni , do, fcol) 
+			set a= 56.23
 			set sum=sum+a
 			set count=count+1
 		}
@@ -97,6 +98,7 @@ ClassMethod PurityParameterLoc(location, ByRef status) As %Numeric
 			&sql(fetch RiverCursor3 into :ph,:ni,:do,:fcol)
 			quit:(SQLCODE '=0)
 			set a=##class(utilities.ServiceOfRiverQuality).IndexCalc(ph, ni , do, fcol) 
+			//set a=5
 			set sum=sum+a
 			set count=count+1
 		}

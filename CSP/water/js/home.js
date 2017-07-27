@@ -323,7 +323,7 @@
 							{   
 								var myArr = JSON.parse(xmlhttp.responseText);
 	                            //console.log("\nIndex is"+myArr.index);
-	                            var contentString='<b style="color:black;">'+'Index is'+myArr.index+'</b>';
+	                            var contentString='<b style="color:black;">'+'Index is '+myArr.index+'</b>';
 						        infowindow2.setContent(contentString );
 						        infowindow2.open(map,marker1);
 						     }
