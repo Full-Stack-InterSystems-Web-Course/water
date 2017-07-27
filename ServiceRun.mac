@@ -9,3 +9,12 @@ ServiceOfAffectedHabitantsWaterImpurity
  do ##class(utilities.ServiceOfAffectedHabitations).waterImpurity()
 ServiceOfAffectedHabitantsTownOrVillageImpurity
  do ##class(utilities.ServiceOfAffectedHabitations).townOrVillageImpurity()
+ 
+ 
+testOfRiverQuality
+ set status = ##Class(utilities.ServiceOfRiverQuality).CreateArrays()
+ set ph =-1,ni=-1,do=-1,fcol=-1 
+ set n = ##Class(utilities.ServiceOfRiverQuality).IndexCalc(ph,ni,do,fcol)
+ w n
+ 
+ 
