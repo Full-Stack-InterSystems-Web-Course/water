@@ -1,4 +1,5 @@
-Class utilities.ServiceOfWaterQuality {
+Class utilities.ServiceOfWaterQuality
+{
 
 /// we should take information from initial data (AffectedWaterParameters) about states
 ClassMethod states() As %Status
@@ -35,5 +36,4 @@ ClassMethod stateImpurityData(state As %String) As %String
 	  &sql(fetch data)
 	  return myJSONString
 }
-
 }

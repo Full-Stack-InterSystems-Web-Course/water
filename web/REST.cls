@@ -30,6 +30,9 @@ XData UrlMap [ XMLNamespace = "http://www.intersystems.com/urlmap" ]
 <Route Url="/towns" Method="GET" Call="json.StateService:readAllTowns" Cors="true"/>
 <Route Url="/districts/:name" Method="GET" Call="json.StateService:readByState" Cors="true"/>
 <Route Url="/impurity/:name" Method="GET" Call="json.StateService:readDataAtDistrict" Cors="true" />
+<Route Url="/river" Method="POST" Call="json.StateService:readLocationOfRiver" Cors="true" />
+<Route Url="/index" Method="POST" Call="json.StateService:IndexCalculator" Cors="true" />
+<Route Url="/indexI" Method="POST" Call="json.StateService:IndexCalculatorLoc" Cors="true" />
 
 <!-- Get table of water quality in the Selected state -->
 <Route Url="/waterstate/:name" Method="GET" Call="json.StateService:readWaterState"/>

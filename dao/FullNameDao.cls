@@ -1,4 +1,5 @@
-Class dao.FullNameDao {
+Class dao.FullNameDao
+{
 
 ClassMethod readAll(ByRef status As %Status) As %ListOfDataTypes
 {
@@ -28,7 +29,7 @@ ClassMethod readAll(ByRef status As %Status) As %ListOfDataTypes
  	 return list
 }
 
-ClassMethod readByState(ByVal stname As %String,ByRef status As %Status) As %ListOfDataTypes
+ClassMethod readByState(stname As %String, ByRef status As %Status) As %ListOfDataTypes
 {
 	 //write "Inside readByState",!
 	 set list= ##class(%ListOfDataTypes).%New()
@@ -53,6 +54,5 @@ ClassMethod readByState(ByVal stname As %String,ByRef status As %Status) As %Lis
 
  	 return list
 }
-
 
 }

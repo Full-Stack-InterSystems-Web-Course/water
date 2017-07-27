@@ -1,4 +1,5 @@
-Class dao.DistrictDao {
+Class dao.DistrictDao
+{
 
 ClassMethod districts() As %Status
 {
