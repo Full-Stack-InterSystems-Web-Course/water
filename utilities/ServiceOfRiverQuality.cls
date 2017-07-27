@@ -112,29 +112,112 @@ ClassMethod CreateArrays() As %Status
 	set ^FCol(100001) = 2
 }
 
-ClassMethod SetWeightFactors() As %Status
-{
-	set ^WDO = 0.3
-	set ^WPh =0.2
-	set ^WFCol =0.3
-	set ^WNi =0.2
-	/*set ^W("DO")= 0.3
-	set ^W("Ph")=0.2
-	set ^W("FCol")=0.3
-	set ^W("Ni")=0.2*/
-}
-
-ClassMethod IndexCalc(ph As %Numeric, ni As %Numeric, do As %Numeric, fcol As %Numeric, index As %Numeric)
+ClassMethod IndexCalc(ph As %Numeric, ni As %Numeric, do As %Numeric, fcol As %Numeric) As %Numeric
 {
 	set temp = do\8.26
 	set do = temp * 100
-	set do = ROUND(do,0)
+	//set do = ROUND(do,0)
+	
+	
+	
+	if (ni >= 0 && ni< 0.15)
+	{
+    set ni = 0
+	}
+	elseif (ni >= 0.15 && ni< 0.25)
+	{
+    set ni = 0.25
+	}
+	elseif (ni >= 0.25 && ni< 0.37)
+	{
+	    set ni = 0.25
+	}
+	elseif (ni >= 0.37 && ni< 0.50)
+	{
+	    set ni = 0.50
+	}
+	elseif (ni >= 0.67 && ni< 0.75)
+	{
+	    set ni = 0.50
+	}
+	elseif (ni >= 0.75 && ni< 1)
+	{
+	    set ni = 0.75
+	}
+	elseif (ni >=1 && ni< 1.25)
+	{
+	    set ni = 1
+	}
+	elseif (ni >= 1.25 && ni< 1.75)
+	{
+	    set ni = 1.5
+	}
+	elseif (ni >= 1.75 && ni< 2.5)
+	{
+	    set ni = 2
+	}
+	elseif (ni >= 2.5 && ni< 3.5)
+	{
+	    set ni = 3
+	}
+	elseif (ni >= 3.5 && ni< 4.5)
+	{
+	    set ni = 4
+	}
+	elseif (ni >= 4.5 && ni< 7.5)
+	{
+	    set ni = 5
+	}
+	elseif (ni >= 7.5 && ni< 12.5)
+	{
+	    set ni = 10
+	}
+	elseif (ni >= 12.5 && ni< 17.5)
+	{
+	    set ni = 15
+	}
+	elseif (ni >= 17.5 && ni< 25)
+	{
+	    set ni = 20
+	}
+	elseif (ni >= 25 && ni< 35)
+	{
+	    set ni = 30
+	}
+	elseif (ni >= 35 && ni< 45)
+	{
+	    set ni = 40
+	}
+	elseif (ni >= 45 && ni< 55)
+	{
+	    set ni = 50
+	}
+	elseif (ni >= 55 && ni< 65)
+	{
+	    set ni = 60
+	}
+	elseif (ni >= 65 && ni< 75)
+	{
+	    set ni = 70
+	}
+	elseif (ni >= 75 && ni< 85)
+	{
+	    set ni = 80
+	}
+	elseif (ni >= 85 && ni< 95)
+	{
+	    set ni = 90
+	}
+	elseif (ni >= 95 && ni< 100)
+	{
+	    set ni = 100
+	}
 	
 		
 	///round the values of ph to values we have in globals
 	if (ph<= 7.1 || ph>=9)
 	{
-		set ph = ROUND(ph,0)
+		set ph = ph\1
 	}
 	elseif (ph>8 && ph<9)
 	{
@@ -160,30 +243,30 @@ ClassMethod IndexCalc(ph As %Numeric, ni As %Numeric, do As %Numeric, fcol As %N
 	///fcol
 	if (fcol >= 1 && val <10)
 	{
-		set fcol = ROUND(val,0)
+		set fcol = val\1
 	}
 	elseif (fcol >= 10 && fcol <100)
 	{
 			 set fcol = fcol \ 10
-			 set fcol = ROUND(fcol,0)
+			 //set fcol = ROUND(fcol,0)
 			 set fcol = fcol * 10
 	}
 	elseif (fcol >= 100 && fcol <1000)
 	{
 			    set fcol = fcol \ 100
-			    set fcol = ROUND(fcol,0)
+			   // set fcol = ROUND(fcol,0)
 			    set fcol = fcol * 100
 	}
 	elseif (fcol >= 1000 && fcol <10000)
 	{
 			    set fcol = fcol \ 1000
-			    set fcol = ROUND(fcol,0)
+			    //set fcol = ROUND(fcol,0)
 			    set fcol = fcol * 1000
 	}
 	elseif (fcol >= 10000 && fcol <100000)
 	{
 			    set fcol = fcol \ 10000
-			    set fcol = ROUND(fcol,0)
+			    //set fcol = ROUND(fcol,0)
 			    set fcol = fcol * 10000
 	}
 	
@@ -237,7 +320,6 @@ ClassMethod IndexCalc(ph As %Numeric, ni As %Numeric, do As %Numeric, fcol As %N
 	
 	set index = wph+wdo+wfol+wni
 	return index
-	
 }
 
 }

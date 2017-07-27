@@ -1,10 +1,10 @@
-Class entity.TownOrVillageImpurity Extends %Persistent
-{
-
-Property name As TownOrVillage;
-
-Property impurity As WaterImpurity;
-
+Class entity.TownOrVillageImpurity Extends %Persistent
+{
+
+Property name As TownOrVillage;
+
+Property impurity As WaterImpurity;
+
 Storage Default
 {
 <Data name="TownOrVillageImpurityDefaultData">
@@ -26,4 +26,4 @@ Storage Default
 <Type>%Library.CacheStorage</Type>
 }
 
-}
+}

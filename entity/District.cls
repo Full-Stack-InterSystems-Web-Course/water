@@ -1,10 +1,10 @@
-Class entity.District Extends %Persistent
-{
-
-Property name As %String;
-
-Property state As State;
-
+Class entity.District Extends %Persistent
+{
+
+Property name As %String;
+
+Property state As State;
+
 Storage Default
 {
 <Data name="DistrictDefaultData">
@@ -26,4 +26,4 @@ Storage Default
 <Type>%Library.CacheStorage</Type>
 }
 
-}
+}

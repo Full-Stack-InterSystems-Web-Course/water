@@ -33,7 +33,7 @@ ClassMethod riverLocation(ByVal statename,ByRef status ) As %ListOfDataTypes
 		&sql(declare RiverCursor cursor for
 			select Locations
 			from entity.RiverQuality 
-			where State=statename )
+			where State=state )
 			
 		&sql(open RiverCursor)
 		for{

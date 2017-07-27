@@ -1,10 +1,10 @@
-Class entity.TownOrVillage Extends %Persistent
-{
-
-Property name As %String;
-
-Property districtName As entity.District;
-
+Class entity.TownOrVillage Extends %Persistent
+{
+
+Property name As %String;
+
+Property districtName As entity.District;
+
 Storage Default
 {
 <Data name="TownOrVillageDefaultData">
@@ -26,4 +26,4 @@ Storage Default
 <Type>%Library.CacheStorage</Type>
 }
 
-}
+}
