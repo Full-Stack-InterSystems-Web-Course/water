@@ -65,16 +65,79 @@ h3 {
 			height: 170px;  
 		 }
 
+/*Modal Design*/
+.modal-header, h4, .close {
+      background-color: #2d2d30;
+      color:white !important;
+      text-align: center;
+      font-size: 30px;
+  }
+  .modal-footer{
+      background-color: #f9f9f9;
+  }
+
+/*MODAL TABLE*/
+/*******************************
+* MODAL AS RIGHT SIDEBAR
+*******************************/
+	#pmodal #pmodaldialog {
+		position: fixed;
+		margin: auto;
+		width: 320px;
+		height: 100%;
+		-webkit-transform: translate3d(0%, 0, 0);
+		    -ms-transform: translate3d(0%, 0, 0);
+		     -o-transform: translate3d(0%, 0, 0);
+		        transform: translate3d(0%, 0, 0);
+	}
+	#pmodal #pmodalcontent {
+		height: 100%;
+		overflow-y: auto;
+	}
+	#pmodal #pmodalbody {
+		padding: 15px 15px 80px;
+		background-color: #2d2d30;
+	}
+        
+/*Right*/
+	#pmodal #pmodaldialog {
+		right: -320px;
+		-webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+		   -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+		     -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+		        transition: opacity 0.3s linear, right 0.3s ease-out;
+				right: 0;
+		background-color: #2d2d30;
+	}
+	
+	/*.modal.right.fade.in .modal-dialog {
+		
+	}*/
+
+/* ----- MODAL STYLE ----- */
+	#pmodalcontent {
+		border-radius: 0;
+		border: none;
+		background-color: #2d2d30;
+	}
+
+	#pmodalheader {
+		border-bottom-color: white;
+		background-color: #2d2d30;
+	}
+
 /* Turn off parallax scrolling for tablets and phones */
 @media only screen and (max-device-width: 1024px) {
     .bgimg-1, .bgimg-2, .bgimg-3 {
         background-attachment: scroll;
     }
 }
-  #section1 {height:100%;color: #fff;background-color: #2d2d30;}
-  #section2 {height:100%;color: #fff;background-color: #2d2d30;}
-  #section3 {height:100%;color: #fff;background-color: #2d2d30;}
-  #section4 {height:100%;color: #fff;background-color: #2d2d30;}
+  #section1 {height:100%; color: whitesmoke;background-color: #2d2d30;}
+  #section2 {height:100%; color: whitesmoke;background-color: #2d2d30;}
+  #section3 {height:100%; color: whitesmoke;background-color: #2d2d30;}
+  #section4 {height:100%; color: whitesmoke;background-color: #2d2d30;}
+  #Rate {height:100%;color: teal;background-color: #2d2d30;}
+  #login {height:100%;color: whitesmoke;background-color: #2d2d30;}
 .navbar
 {
 	position:fixed;

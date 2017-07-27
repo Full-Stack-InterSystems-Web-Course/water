@@ -65,7 +65,10 @@
             content: contentString
             });
             $(document).on('click','div#okay',function(e){
-            alert('damn'+e.currentTarget.textContent);
+				$("#okay").click(function(){
+					$("#pmodal").modal();
+				});
+				//alert('damn'+e.currentTarget.textContent);
             });
 
 
@@ -338,3 +341,13 @@
                         }
                     }
         }
+$(document).ready(function(){
+    $("#myBtn").click(function(){
+        $("#myModal").modal();
+    });
+});
+$(document).ready(function(){
+    $("#Rate").click(function(){
+        $("#rateModal").modal();
+    });
+});
