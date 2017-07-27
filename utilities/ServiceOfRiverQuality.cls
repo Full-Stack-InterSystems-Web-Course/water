@@ -124,12 +124,16 @@ ClassMethod SetWeightFactors() As %Status
 	set ^W("Ni")=0.2*/
 }
 
-ClassMethod IndexCalc(ph As %Numeric, ni As %Numeric, do As %Numeric, fcol As %Numeric, index As %Numeric)
-{
-	set temp = do\8.26
-	set do = temp * 100
-	set do = ROUND(do,0)
+ClassMethod IndexCalc(ph As %Numeric, ni As %Numeric, do As %Numeric, fcol As %Numeric) As %Numeric
+{	
+	set temp = do/8.26
 	
+	set do = temp * 100
+	
+	//set do = ROUND(do,0)
+	//write "Jello",Round(do,0)
+	write ROUND(do,0)
+	do $system.Status.DisplayError(mean)
 		
 	///round the values of ph to values we have in globals
 	if (ph<= 7.1 || ph>=9)
@@ -236,6 +240,8 @@ ClassMethod IndexCalc(ph As %Numeric, ni As %Numeric, do As %Numeric, fcol As %N
 	set wni = ^Ni(ni) * wni
 	
 	set index = wph+wdo+wfol+wni
+	write index
+	write "Bello"
 	return index
 	
 }

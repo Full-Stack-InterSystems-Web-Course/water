@@ -82,8 +82,9 @@ ClassMethod readDataAtDistrict(ByVal distname As %String ) As %Status
 	return $$$OK
 }
 
-ClassMethod readLocationOfRiver(ByVal statename As %String) As %Status
-{
+ClassMethod readLocationOfRiver() As %Status
+{	
+	set statename=%request.Content.Read($$$MaxStringLength)
 	set list=##class(dao.StateDao).riverLocation(statename,.status )
 	set returnJsonObj ={}
 	set jsonArray = []
@@ -92,6 +93,25 @@ ClassMethod readLocationOfRiver(ByVal statename As %String) As %Status
 	}
 	
 	set returnJsonObj.location = jsonArray
+	write returnJsonObj.%ToJSON()
+	return $$$OK 
+}
+
+ClassMethod IndexCalculator() As %Status
+{	set statename=%request.Content.Read($$$MaxStringLength)
+	set index=##class(dao.StateDao).PurityParameter(statename,.status)
+	set returnJsonObj ={}
+	set returnJsonObj.index = index
+	write returnJsonObj.%ToJSON()
+	return $$$OK 
+}
+
+ClassMethod IndexCalculatorLoc() As %Status
+{
+	set location=%request.Content.Read($$$MaxStringLength)
+	set index=##class(dao.StateDao).PurityParameterLoc(location,.status)
+	set returnJsonObj ={}
+	set returnJsonObj.index = index
 	write returnJsonObj.%ToJSON()
 	return $$$OK 
 }
