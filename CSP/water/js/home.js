@@ -160,7 +160,7 @@
 						if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
 						{
 							var myArr = JSON.parse(xmlhttp.responseText);
-                            //DistNamefromState(myArr.results[0].address_components[3].long_name);
+                            DistNamefromState(myArr.results[0].address_components[3].long_name);
                             RiverLocation(myArr.results[0].address_components[3].long_name);
 						}
 					}
