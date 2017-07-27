@@ -1,4 +1,4 @@
-    
+
       var zoomlevel=5;
       var map, places, infoWindow;
       var markers ;
