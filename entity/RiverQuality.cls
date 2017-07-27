@@ -1,72 +1,72 @@
-Class entity.RiverQuality Extends %Persistent
-{
-
-Property StationCode As %Numeric [ SqlColumnNumber = 2 ];
-
-Property Locations As %String [ SqlColumnNumber = 3 ];
-
-Property State As %String [ SqlColumnNumber = 4 ];
-
-Property TempMIN As %Numeric [ SqlColumnNumber = 5 ];
-
-Property TemperatureMAX As %Numeric [ SqlColumnNumber = 6 ];
-
-Property TemperatureMEAN As %Numeric [ SqlColumnNumber = 7 ];
-
-Property DisolvedOxygenMIN As %Library.Numeric [ SqlColumnNumber = 8 ];
-
-// mg/l
-
-Property DisolvedOxygenMAX As %Library.Numeric [ SqlColumnNumber = 9 ];
-
-// mg/l
-
-Property DisolvedOxygenMEAN As %Library.Numeric [ SqlColumnNumber = 10 ];
-
-// mg/l
-
-Property pHMIN As %Library.Numeric [ SqlColumnNumber = 11 ];
-
-Property pHMAX As %Library.Numeric [ SqlColumnNumber = 12 ];
-
-Property pHMEAN As %Library.Numeric [ SqlColumnNumber = 13 ];
-
-Property ConductivityMIN As %Library.Numeric [ SqlColumnNumber = 14 ];
-
-Property ConductivityMAX As %Library.Numeric [ SqlColumnNumber = 15 ];
-
-Property ConductivityMEAN As %Library.Numeric [ SqlColumnNumber = 16 ];
-
-Property BODMIN As %Library.Numeric [ SqlColumnNumber = 17 ];
-
-// Biochemical Oxygen Demand
-
-Property BODMAX As %Library.Numeric [ SqlColumnNumber = 18 ];
-
-// Biochemical Oxygen Demand
-
-Property BODMEAN As %Library.Numeric [ SqlColumnNumber = 19 ];
-
-// Biochemical Oxygen Demand
-
-Property NitrateNitriteMIN As %Library.Numeric [ SqlColumnNumber = 20 ];
-
-Property NitrateNitriteMAX As %Library.Numeric [ SqlColumnNumber = 21 ];
-
-Property NitrateNitriteMEAN As %Library.Numeric [ SqlColumnNumber = 22 ];
-
-Property FecalColiformMIN As %Library.Numeric [ SqlColumnNumber = 23 ];
-
-Property FecalColiformMAX As %Library.Numeric [ SqlColumnNumber = 24 ];
-
-Property FecalColiformMEAN As %Library.Numeric [ SqlColumnNumber = 25 ];
-
-Property TotalColiformMIN As %Library.Numeric [ SqlColumnNumber = 26 ];
-
-Property TotalColiformMAX As %Library.Numeric [ SqlColumnNumber = 27 ];
-
-Property TotalColiformMEAN As %Library.Numeric [ SqlColumnNumber = 28 ];
-
+Class entity.RiverQuality Extends %Persistent
+{
+
+Property StationCode As %Numeric [ SqlColumnNumber = 2 ];
+
+Property Locations As %String [ SqlColumnNumber = 3 ];
+
+Property State As %String [ SqlColumnNumber = 4 ];
+
+Property TempMIN As %Numeric [ SqlColumnNumber = 5 ];
+
+Property TemperatureMAX As %Numeric [ SqlColumnNumber = 6 ];
+
+Property TemperatureMEAN As %Numeric [ SqlColumnNumber = 7 ];
+
+Property DisolvedOxygenMIN As %Library.Numeric [ SqlColumnNumber = 8 ];
+
+// mg/l
+
+Property DisolvedOxygenMAX As %Library.Numeric [ SqlColumnNumber = 9 ];
+
+// mg/l
+
+Property DisolvedOxygenMEAN As %Library.Numeric [ SqlColumnNumber = 10 ];
+
+// mg/l
+
+Property pHMIN As %Library.Numeric [ SqlColumnNumber = 11 ];
+
+Property pHMAX As %Library.Numeric [ SqlColumnNumber = 12 ];
+
+Property pHMEAN As %Library.Numeric [ SqlColumnNumber = 13 ];
+
+Property ConductivityMIN As %Library.Numeric [ SqlColumnNumber = 14 ];
+
+Property ConductivityMAX As %Library.Numeric [ SqlColumnNumber = 15 ];
+
+Property ConductivityMEAN As %Library.Numeric [ SqlColumnNumber = 16 ];
+
+Property BODMIN As %Library.Numeric [ SqlColumnNumber = 17 ];
+
+// Biochemical Oxygen Demand
+
+Property BODMAX As %Library.Numeric [ SqlColumnNumber = 18 ];
+
+// Biochemical Oxygen Demand
+
+Property BODMEAN As %Library.Numeric [ SqlColumnNumber = 19 ];
+
+// Biochemical Oxygen Demand
+
+Property NitrateNitriteMIN As %Library.Numeric [ SqlColumnNumber = 20 ];
+
+Property NitrateNitriteMAX As %Library.Numeric [ SqlColumnNumber = 21 ];
+
+Property NitrateNitriteMEAN As %Library.Numeric [ SqlColumnNumber = 22 ];
+
+Property FecalColiformMIN As %Library.Numeric [ SqlColumnNumber = 23 ];
+
+Property FecalColiformMAX As %Library.Numeric [ SqlColumnNumber = 24 ];
+
+Property FecalColiformMEAN As %Library.Numeric [ SqlColumnNumber = 25 ];
+
+Property TotalColiformMIN As %Library.Numeric [ SqlColumnNumber = 26 ];
+
+Property TotalColiformMAX As %Library.Numeric [ SqlColumnNumber = 27 ];
+
+Property TotalColiformMEAN As %Library.Numeric [ SqlColumnNumber = 28 ];
+
 Storage Default
 {
 <Data name="RiverQualityDefaultData">
@@ -163,4 +163,4 @@ Storage Default
 <Type>%Library.CacheStorage</Type>
 }
 
-}
+}

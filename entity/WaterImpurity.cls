@@ -1,9 +1,10 @@
-Class entity.WaterImpurity Extends %Persistent
-{
-
-Property name As %String;
-//comment
-
+Class entity.WaterImpurity Extends %Persistent
+{
+
+Property name As %String;
+
+// comment
+
 Storage Default
 {
 <Data name="WaterImpurityDefaultData">
@@ -22,4 +23,4 @@ Storage Default
 <Type>%Library.CacheStorage</Type>
 }
 
-}
+}

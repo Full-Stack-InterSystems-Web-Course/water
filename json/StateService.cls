@@ -116,4 +116,29 @@ ClassMethod IndexCalculatorLoc() As %Status
 	return $$$OK 
 }
 
+ClassMethod readWaterState(name As %String) As %Status
+{
+  // get all states and convert them to json - json array of json objects
+  set list = ##class(dao.StateDao).readWaterState(name,.status)
+  
+  set jsonArray = []
+  for i = 1:1:list.Count(){
+    set obj = ..CopyToJsonObjectWaterQualityStatus(list.GetAt(i))
+    do jsonArray.%Push(obj)
+  }
+
+  write jsonArray.%ToJSON()
+  return $$$OK
+}
+
+/// create a JSON object from State properties
+ClassMethod CopyToJsonObjectWaterQualityStatus(waterQuality As entity.WaterQualityStatus) As %DynamicObject
+{
+ 
+  set object = {}
+    set object.id = waterQuality.%Id()
+  set object.quality = waterQuality.b
+  return object
+}
+
 }

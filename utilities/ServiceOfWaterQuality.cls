@@ -1,4 +1,4 @@
-Class utilities.ServiceOfWaterQuality Extends %Persistent
+Class utilities.ServiceOfWaterQuality
 {
 
 /// we should take information from initial data (AffectedWaterParameters) about states
@@ -35,6 +35,7 @@ ClassMethod stateImpurityData(state As %String) As %String
 	
 	  &sql(fetch data)
 	  return myJSONString
+
 }
 
 Storage Default

@@ -1,28 +1,18 @@
 /// Dispatch class
 Class web.REST Extends %CSP.REST
 {
+ // ClassMethod OnHandleOptionsRequest(pUrl As %String) as %Status
+ //{
+ //	 Set tOrigin=$Get(%request.CgiEnvs("HTTP_ORIGIN"))
+ //	 Do ..SetResponseHeaderIfEmpty("Access-Control-Allow-Origin",tOrigin) 
+ //	 Do ..SetResponseHeaderIfEmpty("Access-Control-Allow-Credentials","true")
+ //	 Set tHeaders=$Get(%request.CgiEnvs("HTTP_ACCESS_CONTROL_REQUEST_HEADERS"))
+ //     Do ..SetResponseHeaderIfEmpty("Access-Control-Allow-Headers",tHeaders)
+ //     Set tMethod=$Get(%request.CgiEnvs("HTTP_ACCESS_CONTROL_REQUEST_METHOD"))
+ //     Do ..SetResponseHeaderIfEmpty("Access-Control-Allow-Method",tMethod)
+ //	
+ //}
 
-// ClassMethod OnHandleOptionsRequest(pUrl As %String) as %Status
-
-// {
-
-// 	 Set tOrigin=$Get(%request.CgiEnvs("HTTP_ORIGIN"))
-
-// 	 Do ..SetResponseHeaderIfEmpty("Access-Control-Allow-Origin",tOrigin) 
-
-// 	 Do ..SetResponseHeaderIfEmpty("Access-Control-Allow-Credentials","true")
-
-// 	 Set tHeaders=$Get(%request.CgiEnvs("HTTP_ACCESS_CONTROL_REQUEST_HEADERS"))
-
-//     Do ..SetResponseHeaderIfEmpty("Access-Control-Allow-Headers",tHeaders)
-
-//     Set tMethod=$Get(%request.CgiEnvs("HTTP_ACCESS_CONTROL_REQUEST_METHOD"))
-
-//     Do ..SetResponseHeaderIfEmpty("Access-Control-Allow-Method",tMethod)
-
-// 	
-
-// }
 
 XData UrlMap [ XMLNamespace = "http://www.intersystems.com/urlmap" ]
 {
@@ -43,6 +33,9 @@ XData UrlMap [ XMLNamespace = "http://www.intersystems.com/urlmap" ]
 <Route Url="/river" Method="POST" Call="json.StateService:readLocationOfRiver" Cors="true" />
 <Route Url="/index" Method="POST" Call="json.StateService:IndexCalculator" Cors="true" />
 <Route Url="/indexI" Method="POST" Call="json.StateService:IndexCalculatorLoc" Cors="true" />
+
+<!-- Get table of water quality in the Selected state -->
+<Route Url="/waterstate/:name" Method="GET" Call="json.StateService:readWaterState"/>
 </Routes>
 }
 

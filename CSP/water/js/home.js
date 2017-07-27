@@ -1,3 +1,5 @@
+      const host = `http://${ location.hostname }:57772`;
+      const hostapi = host + `/water/api`;  
 
       var zoomlevel=5;
       var map, places, infoWindow;
@@ -6,7 +8,9 @@
       var countryRestrict = {'country': 'IN'};
       var pinImage,pinImage2;
       var infowindow;
-      var infowindow2;
+      var infowindow2;  
+
+
  //      $(window).resize(function(){
  //        $('#map').css("height",$(window).height());
  //        $('#map').css("width",$(window).width());
@@ -61,7 +65,7 @@
             }
           }); 
          
-         var contentString='<div id="okay" style="color:black;"><b> OK </b></div>';
+         var contentString='<div id="okay">Click for Details</div>';
          infowindow = new google.maps.InfoWindow({
             content: contentString
             });
@@ -151,7 +155,8 @@
 							//document.getElementById("redOK").innerHTML=str;
 							
 							var xhr = new XMLHttpRequest();
- 							var url ="http://localhost:57772/water/api/index";
+ 							//var url ="http://localhost:57772/water/api/index";
+                            var url = hostapi + "/index";
  							xhr.open("POST", url, true);
  							xhr.setRequestHeader("Access-Control-Allow-Origin","*");
 							xhr.setRequestHeader("Access-Control-Allow-Credentials", "true");
@@ -194,7 +199,8 @@
         function RiverLocation(statename)
         {
         			var xmlhttp = new XMLHttpRequest();
-					var url ="http://localhost:57772/water/api/river";
+					//var url ="http://localhost:57772/water/api/river";
+                    var url = hostapi + "/river";
 					xmlhttp.open("POST", url, true);
                     xmlhttp.setRequestHeader("Access-Control-Allow-Origin","*");
                     xmlhttp.setRequestHeader("Access-Control-Allow-Credentials", "true");
@@ -218,6 +224,7 @@
  //					google.maps.event.addDomListener(marker, 'click', function(){
  //	            		var xmlhttp = new XMLHttpRequest();
  //	            		var url ="http://localhost:57772/water/api/index";
+ //                     var url = hostapi + "/index";
  //						xmlhttp.open("POST", url, true);
  //	                    xmlhttp.setRequestHeader("Access-Control-Allow-Origin","*");
  //	                    xmlhttp.setRequestHeader("Access-Control-Allow-Credentials", "true");
@@ -226,8 +233,8 @@
  //						{  if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
  //							{   
  //								var myArr = JSON.parse(xmlhttp.responseText);
- //	                            //console.log("\nIndex is"+myArr.index);
- //	                            var contentString='<b style="color:black;">'+'Index of state is'+myArr.index+'</b>';
+ //	                            //console.log("\nIndex is "+myArr.index);
+ //	                            var contentString='<b style="color:black;">'+'Index of state is '+myArr.index+'</b>';
  //						        infowindow.setContent(contentString );
  //						        infowindow.open(map,marker1);
  //						     }
@@ -239,7 +246,8 @@
         function DistNamefromState(statename)
 			{       
 					var xmlhttp = new XMLHttpRequest();
-					var url ="http://localhost:57772/water/api/districts/"+statename;
+					// var url ="http://localhost:57772/water/api/districts/"+statename;
+                    var url = hostapi + "/districts/"+statename;
 					xmlhttp.open("GET", url, true);
                     xmlhttp.setRequestHeader("Access-Control-Allow-Origin","*");
                     xmlhttp.setRequestHeader("Access-Control-Allow-Credentials", "true");
@@ -313,7 +321,8 @@
             
             google.maps.event.addDomListener(marker1, 'click', function(){
 	            		var xmlhttp = new XMLHttpRequest();
-	            		var url ="http://localhost:57772/water/api/indexI";
+	            		// var url ="http://localhost:57772/water/api/indexI";
+                        var url = hostapi + "/indexI";
 						xmlhttp.open("POST", url, true);
 	                    xmlhttp.setRequestHeader("Access-Control-Allow-Origin","*");
 	                    xmlhttp.setRequestHeader("Access-Control-Allow-Credentials", "true");
@@ -322,7 +331,6 @@
 						{  if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
 							{   
 								var myArr = JSON.parse(xmlhttp.responseText);
-	                            //console.log("\nIndex is"+myArr.index);
 	                            var contentString='<b style="color:black;">'+'Index is '+myArr.index+'</b>';
 						        infowindow2.setContent(contentString );
 						        infowindow2.open(map,marker1);
@@ -340,7 +348,8 @@
     function displayImpurity(distName)
         {			console.log("Calling"+distName);
                     var xmlhttp = new XMLHttpRequest();
-					var url ="http://localhost:57772/water/api/impurity/"+distName;
+					// var url ="http://localhost:57772/water/api/impurity/"+distName;
+                    var url = hostapi + "/impurity/"+distName;
 					xmlhttp.open("GET", url, true);
                     xmlhttp.setRequestHeader("Access-Control-Allow-Origin","*");
                     xmlhttp.setRequestHeader("Access-Control-Allow-Credentials", "true");
