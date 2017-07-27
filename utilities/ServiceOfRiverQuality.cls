@@ -112,13 +112,23 @@ ClassMethod CreateArrays() As %Status
 	set ^FCol(100001) = 2
 }
 
+ClassMethod SetWeightFactors() As %Status
+{
+	set ^WDO = 0.3
+	set ^WPh =0.2
+	set ^WFCol =0.3
+	set ^WNi =0.2
+	/*set ^W("DO")= 0.3
+	set ^W("Ph")=0.2
+	set ^W("FCol")=0.3
+	set ^W("Ni")=0.2*/
+}
+
 ClassMethod IndexCalc(ph As %Numeric, ni As %Numeric, do As %Numeric, fcol As %Numeric) As %Numeric
 {
 	set temp = do\8.26
 	set do = temp * 100
-	//set do = ROUND(do,0)
-	
-	
+	//set do = ROUND(do,0)	
 	
 	if (ni >= 0 && ni< 0.15)
 	{
@@ -213,6 +223,12 @@ ClassMethod IndexCalc(ph As %Numeric, ni As %Numeric, do As %Numeric, fcol As %N
 	    set ni = 100
 	}
 	
+	set do = temp * 100
+	
+	//set do = ROUND(do,0)
+	//write "Jello",Round(do,0)
+	write ROUND(do,0)
+	do $system.Status.DisplayError(mean)
 		
 	///round the values of ph to values we have in globals
 	if (ph<= 7.1 || ph>=9)
@@ -319,6 +335,8 @@ ClassMethod IndexCalc(ph As %Numeric, ni As %Numeric, do As %Numeric, fcol As %N
 	set wni = ^Ni(ni) * wni
 	
 	set index = wph+wdo+wfol+wni
+	write index
+	write "Bello"
 	return index
 }
 

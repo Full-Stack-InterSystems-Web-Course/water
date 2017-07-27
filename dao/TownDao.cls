@@ -1,4 +1,6 @@
-Class dao.TownDao {
+Class dao.TownDao
+{
+
 ClassMethod townsOrVillages() As %Status
 {
 	 &sql(declare townsOrVillages cursor for
@@ -27,4 +29,5 @@ ClassMethod townsOrVillages() As %Status
 	 	 set status = obj.%Save()
  	 }
 }
+
 }
