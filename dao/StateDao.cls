@@ -113,4 +113,3 @@ ClassMethod PurityParameterLoc(location, ByRef status) As %Numeric
 	
 	
 }
-
