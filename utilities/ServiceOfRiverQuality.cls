@@ -110,31 +110,97 @@ ClassMethod CreateArrays() As %Status
 	set ^FCol(90000) = 4                        
 	set ^FCol(100000) = 4                        
 	set ^FCol(100001) = 2
+	
+	return $$$OK 
 }
 
-ClassMethod SetWeightFactors() As %Status
-{
-	set ^WDO = 0.3
-	set ^WPh =0.2
-	set ^WFCol =0.3
-	set ^WNi =0.2
-	/*set ^W("DO")= 0.3
-	set ^W("Ph")=0.2
-	set ^W("FCol")=0.3
-	set ^W("Ni")=0.2*/
-}
 
 ClassMethod IndexCalc(ph As %Numeric, ni As %Numeric, do As %Numeric, fcol As %Numeric) As %Numeric
 {
-	set temp = do\8.26
+	set temp = do/8.26
 	set do = temp * 100
-	//set do = ROUND(do,0)	
+	
+	write "do = ", do, !
+	set do = $NORMALIZE(do,0)	
+    write "do = ", do, !	
+    
+    if (do>=0 && do<15)
+    {
+    set do = 10
+    }
+    elseif ( do<25)
+    {
+    set do =20
+    }
+    elseif ( do<35)
+    {
+    set do =30
+    }
+    elseif ( do<45)
+    {
+    set do =40
+    }
+    elseif ( do<55)
+    {
+    set do =50
+    }
+    elseif ( do<65)
+    {
+    set do =60
+    }
+    elseif ( do<75)
+    {
+    set do =70
+    }
+    elseif ( do<85)
+    {
+    set do =80
+    }
+    elseif (do<87)
+    {
+    set do =85
+    }
+    elseif ( do<92)
+    {
+    set do =90
+    }
+    elseif ( do<97)
+    {
+    set do =95
+    }
+    elseif ( do<102)
+    {
+    set do =100
+    }
+    elseif ( do<107)
+    {
+    set do = 105
+    }
+    elseif ( do<112)
+    {
+    set do =110
+    }
+    elseif ( do<125)
+    {
+    set do =120
+    }
+    elseif ( do<135)
+    {
+    set do =130
+    }
+    elseif ( do>135)
+    {
+    set do =140
+    }
+    
+    
+    
 	
 	if (ni >= 0 && ni< 0.15)
 	{
     set ni = 0
 	}
-	elseif (ni >= 0.15 && ni< 0.25)
+	elseif (ni< 0.25)
 	{
     set ni = 0.25
 	}
@@ -223,17 +289,15 @@ ClassMethod IndexCalc(ph As %Numeric, ni As %Numeric, do As %Numeric, fcol As %N
 	    set ni = 100
 	}
 	
-	set do = temp * 100
-	
 	//set do = ROUND(do,0)
 	//write "Jello",Round(do,0)
-	write ROUND(do,0)
-	do $system.Status.DisplayError(mean)
-		
+	//write ROUND(do,0)
+	//do $system.Status.DisplayError(mean)
 	///round the values of ph to values we have in globals
+
 	if (ph<= 7.1 || ph>=9)
 	{
-		set ph = ph\1
+		set ph = $NORMALIZE(ph,0)
 	}
 	elseif (ph>8 && ph<9)
 	{
@@ -257,14 +321,14 @@ ClassMethod IndexCalc(ph As %Numeric, ni As %Numeric, do As %Numeric, fcol As %N
 	}
 	
 	///fcol
-	if (fcol >= 1 && val <10)
+	if (fcol >= 1 && fcol <10)
 	{
-		set fcol = val\1
+		set fcol = $NORMALIZE(fcol,0)
 	}
 	elseif (fcol >= 10 && fcol <100)
 	{
-			 set fcol = fcol \ 10
-			 //set fcol = ROUND(fcol,0)
+			 set fcol = fcol / 10
+			 set fcol =$NORMALIZE(fcol,0)
 			 set fcol = fcol * 10
 	}
 	elseif (fcol >= 100 && fcol <1000)
@@ -305,7 +369,7 @@ ClassMethod IndexCalc(ph As %Numeric, ni As %Numeric, do As %Numeric, fcol As %N
 	set count = count-1
 	}
 	
-	set weight = 1\count
+	set weight = 1/count
 	set wph =weight
 	set wdo = weight
 	set wni = weight
@@ -335,8 +399,7 @@ ClassMethod IndexCalc(ph As %Numeric, ni As %Numeric, do As %Numeric, fcol As %N
 	set wni = ^Ni(ni) * wni
 	
 	set index = wph+wdo+wfol+wni
-	write index
-	write "Bello"
+	
 	return index
 }
 
