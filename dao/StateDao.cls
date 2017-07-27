@@ -110,6 +110,30 @@ ClassMethod PurityParameterLoc(location, ByRef status) As %Numeric
 	
 	return mean 
 }
-	
-	
+
+ClassMethod readWaterState(ByVal name As %String, ByRef status As %Status) As %ListOfObjects
+{
+    set status = $$$OK
+  set list = ##class(%ListOfObjects).%New()
+  try {
+    
+    &sql(declare WaterStateCursor cursor for
+      select ID
+      from entity.WaterQualityStatus where d = :name)
+      
+    &sql(open WaterStateCursor)
+    for {
+      &sql(fetch WaterStateCursor into :id)
+      quit:(SQLCODE '= 0)
+      do list.Insert(##class(entity.WaterQualityStatus).%OpenId(id))
+    }
+    &sql(close WaterStateCursor)
+  }
+  catch (ex) {
+    set status = ex.AsStatus()
+  }
+  
+  quit list
+}
+
 }

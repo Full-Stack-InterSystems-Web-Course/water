@@ -6,6 +6,10 @@ body, html {
   color: #777;
 }
 
+#okay{
+  font-weight:bold;
+  color:black;
+}
 .bgimg-1, .bgimg-2, .bgimg-3 {
   position: relative;
   opacity: 0.95;
