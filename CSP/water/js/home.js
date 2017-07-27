@@ -6,6 +6,7 @@
       var countryRestrict = {'country': 'IN'};
       var pinImage,pinImage2;
       var infowindow;
+      var infowindow2;
  //      $(window).resize(function(){
  //        $('#map').css("height",$(window).height());
  //        $('#map').css("width",$(window).width());
@@ -66,12 +67,15 @@
             });
             $(document).on('click','div#okay',function(e){
 				$("#okay").click(function(){
+					WeatherDetail(marker.getPosition().lat(),marker.getPosition().lng());
 					$("#pmodal").modal();
 				});
 				//alert('damn'+e.currentTarget.textContent);
             });
 
-
+        infowindow2=new google.maps.InfoWindow({
+        	content:contentString
+        });
         function placeMarker(location) {
               marker.setMap(null)
               marker = new google.maps.Marker({
@@ -106,7 +110,7 @@
                 console.log(zoomlevel);
                 infowindow.open(map, marker);
                 map.setCenter(marker.getPosition());
-                WeatherDetail(e.latLng.lat(),e.latLng.lng());
+                //WeatherDetail(e.latLng.lat(),e.latLng.lng());
                 localStorage.setItem("latitude",e.latLng.lat());
 				localStorage.setItem("longitude",e.latLng.lng());
                 StateNameFromCoordinates(e.latLng.lat(),e.latLng.lng());
@@ -137,15 +141,34 @@
 					var url ="http://api.openweathermap.org/data/2.5/weather?lat="+latitude+"&lon="+longitude+"&APPID=9aad73724ff31e833b1e14dfbf5a6f9e";
 					xmlhttp.open("GET", url, true);
 					xmlhttp.send();
-					
+					var str=""
 					xmlhttp.onreadystatechange = function()
 					{
 						if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
-						{
-							var myArr = JSON.parse(xmlhttp.responseText);
-							console.log(myArr.main)
+						{	var myArr = JSON.parse(xmlhttp.responseText);
+							//console.log(myArr.main)
+							str= '<tr><td>Temperature</td><td class="text-right">'+myArr.main.temp+'&deg K'+'</td></tr><tr><td>Pressure</td> <td class="text-right">'+myArr.main.pressure+'</td></tr><tr><td>Humidity</td><td class="text-right">'+myArr.main.humidity+'</td></tr>';
+							//document.getElementById("redOK").innerHTML=str;
 							
+							var xhr = new XMLHttpRequest();
+ 							var url ="http://localhost:57772/water/api/index";
+ 							xhr.open("POST", url, true);
+ 							xhr.setRequestHeader("Access-Control-Allow-Origin","*");
+							xhr.setRequestHeader("Access-Control-Allow-Credentials", "true");
 							
+							var statename="GUJARAT"
+							xhr.send(statename);
+							xhr.onreadystatechange = function()
+								{  if (xhr.readyState == 4 && xhr.status == 200)
+									{   
+										var myArr = JSON.parse(xhr.responseText);
+			                            str=str +'<tr><td>Water Index</td><td class="text-right">'+myArr.index+'</td></tr>';
+ 			                            console.log("Inner HTML iS"+str);
+ 			                           document.getElementById('redOK').innerHTML=str;
+ 			                        } 
+ 			                    }
+ 			              
+	                    
 						}
 					}
 			}
@@ -272,7 +295,8 @@
         });
             str=str.substring(0, str.indexOf("+"));
             google.maps.event.addDomListener(marker1, 'click', function(){
-             console.log("Calling"+str);
+             //console.log("Calling"+str);
+             $("#pmodal").modal();
              displayImpurity(str);
 
              });
@@ -300,8 +324,8 @@
 								var myArr = JSON.parse(xmlhttp.responseText);
 	                            //console.log("\nIndex is"+myArr.index);
 	                            var contentString='<b style="color:black;">'+'Index is'+myArr.index+'</b>';
-						        infowindow.setContent(contentString );
-						        infowindow.open(map,marker1);
+						        infowindow2.setContent(contentString );
+						        infowindow2.open(map,marker1);
 						     }
 	                    }
                   });
@@ -323,19 +347,21 @@
                    	xmlhttp.send();
 					xmlhttp.onreadystatechange = function()
 					{  if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
-						{   console.log("\nImpurities At"+distName);
+						{   console.log("\nImpurities at"+distName);
 							var myArr = JSON.parse(xmlhttp.responseText);
                             //for(var i=0;i<myArr.names.length;i++)
+                            var str=" ";
                             for(var i=0;i<myArr.impurityName.length;i++)
-                            {   console.log(myArr.impurityName[i]+"\n");
+                            {   //console.log(myArr.impurityName[i]+"\n");
+                                str+=myArr.impurityName[i]+"\n"
                                 //LocationFromName(myArr.names[i]);
 //                                contentString ='<p>'+myArr.impurityName[i]+'</p><br/>';
 //                                new google.maps.InfoWindow({
 //                                    content: contentString
 //                                    });
-                             
-                             
+                                                         
                             }
+                            document.getElementById('redOK').innerHTML='<p>'+str+'</p>'
                                
                                 //console.log(myArr.names);
                         }
