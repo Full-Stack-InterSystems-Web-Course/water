@@ -120,9 +120,7 @@ ClassMethod IndexCalc(ph As %Numeric, ni As %Numeric, do As %Numeric, fcol As %N
 	set temp = do/8.26
 	set do = temp * 100
 	
-	write "do = ", do, !
-	set do = $NORMALIZE(do,0)	
-    write "do = ", do, !	
+	set do = $NORMALIZE(do,0)		
     
     if (do>=0 && do<15)
     {
@@ -378,18 +376,22 @@ ClassMethod IndexCalc(ph As %Numeric, ni As %Numeric, do As %Numeric, fcol As %N
 	if (ph=-1)
 	{
 	 set wph=0
+	 set ph =1
 	}
 	if (fcol = -1)
 	{
 	 set wfcol =0
+	 set fcol=1
 	}
 	if (do =-1)
 	{
 	set wdo =0
+	set do = 10
 	}
 	if (ni = -1)
 	{
 	set wni=0
+	set ni =0
 	}
 	
 	
@@ -398,7 +400,7 @@ ClassMethod IndexCalc(ph As %Numeric, ni As %Numeric, do As %Numeric, fcol As %N
 	set wfcol = ^FCol(fcol) * wfcol
 	set wni = ^Ni(ni) * wni
 	
-	set index = wph+wdo+wfol+wni
+	set index = wph+wdo+wfcol+wni
 	
 	return index
 }
